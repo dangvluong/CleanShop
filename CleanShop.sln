@@ -7,6 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{549562
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanShop.Domain", "src\CleanShop.Domain\CleanShop.Domain.csproj", "{3EEC011F-1389-446B-973E-5C5515DBCC4A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.Data", "Infra.Data", "{96427B20-57E8-49D5-8495-E3E30F01EBF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanShop.Infra.Data", "src\CleanShop.Infra.Data\CleanShop.Infra.Data.csproj", "{6EFBCFAC-D8B1-4D5C-9069-2EE297D0F04B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.IoC", "Infra.IoC", "{DDB774F4-6CC7-45E3-89DD-0F415190C67F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +23,17 @@ Global
 		{3EEC011F-1389-446B-973E-5C5515DBCC4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EEC011F-1389-446B-973E-5C5515DBCC4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EEC011F-1389-446B-973E-5C5515DBCC4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EFBCFAC-D8B1-4D5C-9069-2EE297D0F04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EFBCFAC-D8B1-4D5C-9069-2EE297D0F04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EFBCFAC-D8B1-4D5C-9069-2EE297D0F04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EFBCFAC-D8B1-4D5C-9069-2EE297D0F04B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3EEC011F-1389-446B-973E-5C5515DBCC4A} = {54956295-1F68-4487-BDF2-E405AB533C76}
+		{6EFBCFAC-D8B1-4D5C-9069-2EE297D0F04B} = {96427B20-57E8-49D5-8495-E3E30F01EBF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53609DBD-80EC-4D45-9904-F20F15825A7E}
