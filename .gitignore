@@ -287,5 +287,6 @@ thumb
 sketch
 src/store.db-shm
 src/store.db-wal
+src/store.db
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,react
