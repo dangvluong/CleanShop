@@ -285,5 +285,7 @@ bower_components
 psd
 thumb
 sketch
+src/store.db-shm
+src/store.db-wal
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,react

@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{37C591F9-922D-4CF4-9ADF-DACB1C2F0940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanShop.Api", "src\CleanShop.Api\CleanShop.Api.csproj", "{1673D1D3-5048-4E35-BB94-A0F7DF9644C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanShop.Api", "src\CleanShop.Api\CleanShop.Api.csproj", "{1673D1D3-5048-4E35-BB94-A0F7DF9644C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanShop.Application", "src\CleanShop.Application\CleanShop.Application.csproj", "{9AFA9163-C0E2-407E-AFDD-ED819D9C8D96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{1673D1D3-5048-4E35-BB94-A0F7DF9644C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1673D1D3-5048-4E35-BB94-A0F7DF9644C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1673D1D3-5048-4E35-BB94-A0F7DF9644C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFA9163-C0E2-407E-AFDD-ED819D9C8D96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFA9163-C0E2-407E-AFDD-ED819D9C8D96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFA9163-C0E2-407E-AFDD-ED819D9C8D96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFA9163-C0E2-407E-AFDD-ED819D9C8D96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{3EEC011F-1389-446B-973E-5C5515DBCC4A} = {54956295-1F68-4487-BDF2-E405AB533C76}
 		{6EFBCFAC-D8B1-4D5C-9069-2EE297D0F04B} = {96427B20-57E8-49D5-8495-E3E30F01EBF3}
 		{1673D1D3-5048-4E35-BB94-A0F7DF9644C7} = {37C591F9-922D-4CF4-9ADF-DACB1C2F0940}
+		{9AFA9163-C0E2-407E-AFDD-ED819D9C8D96} = {7BBE434F-0CFB-4BFD-90BF-56FFF5612939}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53609DBD-80EC-4D45-9904-F20F15825A7E}
