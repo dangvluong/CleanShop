@@ -1,4 +1,5 @@
 using CleanShop.Infra.Data;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(CleanShop.Application.AssemblyReference.Assemby));
+
 builder.Services.RegisterDatabaseServices(builder.Configuration);
+
 
 var app = builder.Build();
 
