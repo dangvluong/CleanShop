@@ -1,4 +1,6 @@
+using CleanShop.Application.Commons.Interfaces;
 using CleanShop.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,5 +31,21 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var scope = app.Services.CreateScope();
+var context = scope.ServiceProvider.GetRequiredService<IApplicationDbContext>();
+var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+
+try
+{
+    context.Database.Migrate();
+    await DbInitializer.Initialize(context);
+}
+catch (Exception ex)
+{
+    logger.LogError(ex, "A problem occurred during migration.");
+}
+
+
 
 app.Run();

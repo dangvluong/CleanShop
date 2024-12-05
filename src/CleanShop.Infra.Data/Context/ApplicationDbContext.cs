@@ -18,6 +18,8 @@ namespace CleanShop.Infra.Data.Context
             // TODO: Add audit for auditable entities
             
             return base.SaveChangesAsync(cancellationToken);
+
+            base.Database.Migrate();
         }
     }
 }
