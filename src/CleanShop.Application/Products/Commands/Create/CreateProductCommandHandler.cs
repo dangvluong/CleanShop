@@ -21,7 +21,7 @@ namespace CleanShop.Application.Products.Commands.Create
             {
                 Name = request.Name,
             };
-            
+
             _context.Products.Add(product);
 
             await _context.SaveChangesAsync();
