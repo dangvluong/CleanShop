@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CleanShop.Infra.Data.Migrations
 {
-    [DbContext(typeof(StoreContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     partial class StoreContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

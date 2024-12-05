@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanShop.Infra.Data.Context
 {
-    public class StoreContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        public StoreContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions options) : base(options)
         {
             
         }

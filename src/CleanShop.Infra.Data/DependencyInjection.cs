@@ -10,10 +10,10 @@ namespace CleanShop.Infra.Data
     {
         public static void RegisterDatabaseServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<StoreContext>(options =>
+            services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(configuration.GetConnectionString("StoreDbContext")));            
 
-            services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<StoreContext>());
+            services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         }
     }
 }

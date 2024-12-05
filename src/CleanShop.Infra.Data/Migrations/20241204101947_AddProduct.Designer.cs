@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CleanShop.Infra.Data.Migrations
 {
-    [DbContext(typeof(StoreContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20241204101947_AddProduct")]
     partial class AddProduct
     {
