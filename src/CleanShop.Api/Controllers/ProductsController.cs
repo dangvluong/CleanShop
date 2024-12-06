@@ -9,11 +9,11 @@ namespace CleanShop.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         private readonly ISender _sender;
 
-        public ProductController(ISender sender)
+        public ProductsController(ISender sender)
         {
             _sender = sender;
         }
