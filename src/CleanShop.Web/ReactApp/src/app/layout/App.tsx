@@ -1,35 +1,31 @@
-import { useState } from "react";
-import Catalog from "../../features/catalog/Catalog";
-import Header from "./Header";
+import Header from './Header';
 import {
   Container,
   CssBaseline,
   ThemeProvider,
   createTheme,
-} from "@mui/material";
-import { Outlet } from "react-router";
+} from '@mui/material';
+import { Outlet } from 'react-router';
+import { useAppSelector } from '../store/store';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const paletteType = darkMode ? "dark" : "light";
+  const { darkMode } = useAppSelector((state) => state.ui);
+
+  const paletteType = darkMode ? 'dark' : 'light';
 
   const theme = createTheme({
     palette: {
       mode: paletteType,
       background: {
-        default: paletteType === "light" ? "#eaeaea" : "#121212",
+        default: paletteType === 'light' ? '#eaeaea' : '#121212',
       },
     },
   });
 
-  function handleThemeChange() {
-    setDarkMode(!darkMode);
-  }
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
+      <Header />
       <Container>
         <Outlet />
       </Container>
