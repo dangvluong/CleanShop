@@ -1,5 +1,5 @@
-﻿using CleanShop.Domain.Entities;
-using MediatR;
+﻿using CleanShop.Application.Commons.Interfaces.Messaging;
+using CleanShop.Domain.Entities;
 
 namespace CleanShop.Application.Products.Commands.Create
 {
@@ -9,7 +9,7 @@ namespace CleanShop.Application.Products.Commands.Create
         decimal Price,
         string ImageUrl,
         string Type,
-        string Brand) : IRequest<Product>
+        string Brand) : ICommand<Product>
     {
 
     }

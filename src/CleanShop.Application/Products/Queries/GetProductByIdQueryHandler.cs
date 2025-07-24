@@ -1,11 +1,11 @@
 ﻿using CleanShop.Application.Commons.Interfaces;
+using CleanShop.Application.Commons.Interfaces.Messaging;
 using CleanShop.Domain.Entities;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanShop.Application.Products.Queries
 {
-    public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, Product>
+    public class GetProductByIdQueryHandler : IQueryHandler<GetProductByIdQuery, Product>
     {
         private readonly IApplicationDbContext _context;
 

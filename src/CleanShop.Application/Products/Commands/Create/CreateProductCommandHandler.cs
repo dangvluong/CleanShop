@@ -1,11 +1,11 @@
 ﻿using CleanShop.Application.Commons.Interfaces;
+using CleanShop.Application.Commons.Interfaces.Messaging;
 using CleanShop.Domain.Entities;
 using CleanShop.Domain.Services;
-using MediatR;
 
 namespace CleanShop.Application.Products.Commands.Create
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Product>
+    public class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, Product>
     {
         private readonly IApplicationDbContext _context;
 
@@ -24,7 +24,7 @@ namespace CleanShop.Application.Products.Commands.Create
 
             _context.Products.Add(product);
 
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
 
             return product;
         }

@@ -1,7 +1,7 @@
-﻿using CleanShop.Domain.Entities;
-using MediatR;
+﻿using CleanShop.Application.Commons.Interfaces.Messaging;
+using CleanShop.Domain.Entities;
 
 namespace CleanShop.Application.Products.Queries
 {
-    public record GetProductByIdQuery(int productId) : IRequest<Product>;
+    public record GetProductByIdQuery(int productId) : IQuery<Product>;
 }
