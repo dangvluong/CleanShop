@@ -1,4 +1,5 @@
-﻿using CleanShop.Application.Commons.Interfaces.Messaging;
+﻿using CleanShop.Application.Commons;
+using CleanShop.Application.Commons.Interfaces.Messaging;
 using CleanShop.Application.Products.Commands.Create;
 using CleanShop.Application.Products.Queries;
 using CleanShop.Domain.Entities;
@@ -13,7 +14,9 @@ public static class DependencyInjection
         services.AddScoped<IQueryHandler<GetProductsQuery, IEnumerable<Product>>, GetProductsQueryHandler>();
         services.AddScoped<IQueryHandler<GetProductByIdQuery, Product>, GetProductByIdQueryHandler>();
         services.AddScoped<ICommandHandler<CreateProductCommand, Product>, CreateProductCommandHandler>();
-        
+
+        services.AddScoped<IMediator, Mediator>();
+
         return services;
     }
 }

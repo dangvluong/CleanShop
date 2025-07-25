@@ -11,39 +11,45 @@ namespace CleanShop.Api.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private readonly IMediator _sender;
+
+        public ProductsController(IMediator sender)
+        {
+            _sender = sender;
+        }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts(IQueryHandler<GetProductsQuery, IEnumerable<Product>> handler, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetProducts(CancellationToken cancellationToken)
         {
             var query = new GetProductsQuery();
 
-            var result = await handler.Handle(query, cancellationToken);
+            var result = await _sender.SendAsync(query, cancellationToken);
 
             return Ok(result);
         }
 
         [HttpGet("{productId}")]
-        public async Task<IActionResult> GetProductById(int productId,IQueryHandler<GetProductByIdQuery, Product> handler, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetProductById(int productId, CancellationToken cancellationToken)
         {
             var query = new GetProductByIdQuery(productId);
 
-            var result = await handler.Handle(query, cancellationToken);
+            var result = await _sender.SendAsync(query, cancellationToken);
             if (result == null) return NotFound();
 
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddProduct(Product product,ICommandHandler<CreateProductCommand,Product> handler, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddProduct(Product product, CancellationToken cancellationToken)
         {
             var command = new CreateProductCommand(product.Name,
-                                                   product.Description,
-                                                   product.Price,
-                                                   product.ImageUrl,
-                                                   product.Type,
-                                                   product.Brand);
+                product.Description,
+                product.Price,
+                product.ImageUrl,
+                product.Type,
+                product.Brand);
 
-            var result = await handler.Handle(command, cancellationToken);
+            var result = await _sender.SendAsync(command, cancellationToken);
 
             return Ok(result);
         }
