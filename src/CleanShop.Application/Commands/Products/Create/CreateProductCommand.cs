@@ -1,7 +1,7 @@
 ﻿using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Domain.Entities;
 
-namespace CleanShop.Application.Products.Commands.Create
+namespace CleanShop.Application.Commands.Products.Create
 {
     public record CreateProductCommand(
         string Name,

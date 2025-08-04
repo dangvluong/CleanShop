@@ -1,7 +1,6 @@
-﻿using CleanShop.Application.Commons;
+﻿using CleanShop.Application.Commands.Products.Create;
 using CleanShop.Application.Interfaces.Messaging;
-using CleanShop.Application.Products.Commands.Create;
-using CleanShop.Application.Products.Queries;
+using CleanShop.Application.Queries.Products;
 using CleanShop.Application.Services;
 using CleanShop.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;

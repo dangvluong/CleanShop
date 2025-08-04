@@ -1,6 +1,6 @@
 using CleanShop.Domain.Entities;
 
-namespace CleanShop.Application.Interfaces.Services.DataAccess
+namespace CleanShop.Application.Interfaces.Services
 {
     public interface IProductRepository
     {

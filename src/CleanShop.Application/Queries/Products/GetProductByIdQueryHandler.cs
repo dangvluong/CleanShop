@@ -1,9 +1,10 @@
 ﻿using CleanShop.Application.Interfaces;
 using CleanShop.Application.Interfaces.Messaging;
+using CleanShop.Application.Interfaces.Services;
 using CleanShop.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CleanShop.Application.Products.Queries
+namespace CleanShop.Application.Queries.Products
 {
     public class GetProductByIdQueryHandler : IQueryHandler<GetProductByIdQuery, Product>
     {

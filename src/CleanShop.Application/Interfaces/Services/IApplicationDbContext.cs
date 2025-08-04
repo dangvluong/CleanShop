@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace CleanShop.Application.Interfaces
+namespace CleanShop.Application.Interfaces.Services
 {
     public interface IApplicationDbContext
     {

@@ -1,8 +1,9 @@
 ﻿using CleanShop.Application.Interfaces;
 using CleanShop.Application.Interfaces.Messaging;
+using CleanShop.Application.Interfaces.Services;
 using CleanShop.Domain.Entities;
 
-namespace CleanShop.Application.Products.Commands.Create
+namespace CleanShop.Application.Commands.Products.Create
 {
     public class CreateProductCommandHandler : ICommandHandler<CreateProductCommand, Product>
     {
