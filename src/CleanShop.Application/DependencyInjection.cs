@@ -2,6 +2,7 @@
 using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Application.Products.Commands.Create;
 using CleanShop.Application.Products.Queries;
+using CleanShop.Application.Services;
 using CleanShop.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
