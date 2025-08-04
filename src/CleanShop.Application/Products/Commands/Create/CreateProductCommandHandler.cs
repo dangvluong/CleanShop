@@ -1,7 +1,6 @@
-﻿using CleanShop.Application.Commons.Interfaces;
-using CleanShop.Application.Commons.Interfaces.Messaging;
+﻿using CleanShop.Application.Interfaces;
+using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Domain.Entities;
-using CleanShop.Domain.Services;
 
 namespace CleanShop.Application.Products.Commands.Create
 {

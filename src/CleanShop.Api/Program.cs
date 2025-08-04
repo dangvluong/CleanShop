@@ -1,8 +1,7 @@
-using CleanShop.Application.Commons.Interfaces;
 using CleanShop.Infra.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 using CleanShop.Application;
+using CleanShop.Application.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

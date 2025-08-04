@@ -1,4 +1,4 @@
-﻿using CleanShop.Application.Commons.Interfaces;
+﻿using CleanShop.Application.Interfaces;
 using CleanShop.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +12,7 @@ namespace CleanShop.Infra.Data.Context
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

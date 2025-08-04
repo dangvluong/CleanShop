@@ -1,4 +1,4 @@
-﻿using CleanShop.Application.Commons.Interfaces.Messaging;
+﻿using CleanShop.Application.Interfaces.Messaging;
 
 namespace CleanShop.Application.Commons;
 

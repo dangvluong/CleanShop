@@ -1,4 +1,4 @@
-﻿using CleanShop.Application.Commons.Interfaces;
+﻿using CleanShop.Application.Interfaces;
 using CleanShop.Domain.Entities;
 
 namespace CleanShop.Infra.Data

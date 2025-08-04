@@ -15,7 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CleanShop.Domain\CleanShop.Domain.csproj" />
     <ProjectReference Include="..\CleanShop.Infra.Data\CleanShop.Infra.Data.csproj" />
   </ItemGroup>
 

@@ -2,13 +2,16 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace CleanShop.Application.Commons.Interfaces
+namespace CleanShop.Application.Interfaces
 {
     public interface IApplicationDbContext
     {
         DatabaseFacade Database { get; } // Add for seeding data
 
         DbSet<Product> Products { get; }
+        
+        DbSet<Domain.Entities.Basket> Baskets { get; }
+        
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

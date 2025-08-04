@@ -15,4 +15,8 @@
     <ProjectReference Include="..\CleanShop.Domain\CleanShop.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commons\Interfaces\" />
+  </ItemGroup>
+
 </Project>

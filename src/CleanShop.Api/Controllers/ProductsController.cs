@@ -1,4 +1,4 @@
-﻿using CleanShop.Application.Commons.Interfaces.Messaging;
+﻿using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Application.Products.Commands.Create;
 using CleanShop.Application.Products.Queries;
 using CleanShop.Domain.Entities;

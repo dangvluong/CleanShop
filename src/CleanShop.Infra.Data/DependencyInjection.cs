@@ -1,4 +1,4 @@
-﻿using CleanShop.Application.Commons.Interfaces;
+﻿using CleanShop.Application.Interfaces;
 using CleanShop.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
