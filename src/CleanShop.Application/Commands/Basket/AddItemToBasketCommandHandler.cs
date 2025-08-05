@@ -25,7 +25,7 @@ namespace CleanShop.Application.Commands.Basket
             {
                 basket = new Domain.Entities.Basket
                 {
-                    BasketId = request.BasketId,
+                    BasketId = Guid.NewGuid().ToString(),
                     Items = new List<BasketItem>()
                 };
                 _context.Baskets.Add(basket);

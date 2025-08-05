@@ -1,5 +1,7 @@
-﻿using CleanShop.Application.Commands.Products.Create;
+﻿using CleanShop.Application.Commands.Basket;
+using CleanShop.Application.Commands.Products.Create;
 using CleanShop.Application.Interfaces.Messaging;
+using CleanShop.Application.Queries.Basket;
 using CleanShop.Application.Queries.Products;
 using CleanShop.Application.Services;
 using CleanShop.Domain.Entities;
@@ -14,6 +16,12 @@ public static class DependencyInjection
         services.AddScoped<IQueryHandler<GetProductsQuery, IEnumerable<Product>>, GetProductsQueryHandler>();
         services.AddScoped<IQueryHandler<GetProductByIdQuery, Product>, GetProductByIdQueryHandler>();
         services.AddScoped<ICommandHandler<CreateProductCommand, Product>, CreateProductCommandHandler>();
+        
+        services.AddScoped<IQueryHandler<GetBasketQuery, Basket>, GetBasketQueryHandler>();
+        services.AddScoped<IQueryHandler<GetItemFromBasketQuery, BasketItem>, GetItemFromBasketQueryHandler>();
+        services.AddScoped<ICommandHandler<AddItemToBasketCommand, Basket>, AddItemToBasketCommandHandler>();
+        services.AddScoped<ICommandHandler<RemoveItemFromBasketCommand, Basket>, RemoveItemFromBasketCommandHandler>();
+        services.AddScoped<ICommandHandler<CreateBasketCommand, Basket>, CreateBasketCommandHandler>();
 
         services.AddScoped<IMediator, Mediator>();
 

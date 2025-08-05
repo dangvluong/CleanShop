@@ -14,10 +14,11 @@ namespace CleanShop.Application.Queries.Basket
             _context = context;
         }
 
-        public async Task<Domain.Entities.Basket> Handle(GetBasketQuery request, CancellationToken cancellationToken)
+        public async Task<Domain.Entities.Basket?> Handle(GetBasketQuery request, CancellationToken cancellationToken)
         {
             return await _context.Baskets
                 .Include(b => b.Items)
+                .ThenInclude(a => a.Product)
                 .FirstOrDefaultAsync(b => b.BasketId == request.BasketId, cancellationToken);
         }
     }
