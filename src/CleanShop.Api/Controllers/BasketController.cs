@@ -1,4 +1,6 @@
-﻿using CleanShop.Application.Commands.Basket;
+﻿using CleanShop.Api.DTOs;
+using CleanShop.Api.Extensions;
+using CleanShop.Application.Commands.Basket;
 using CleanShop.Application.Interfaces;
 using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Application.Interfaces.Services;
@@ -56,11 +58,11 @@ namespace CleanShop.Api.Controllers
             Response.Cookies.Append("basketId", basket.BasketId, cookieOptions);
 
             // Return the basket
-            return Ok(basket);
+            return Ok(basket.ToDto());
         }
     
         [HttpPost]
-        public async Task<ActionResult> AddItemToBasket(int productId, int quantity, CancellationToken cancellationToken)
+        public async Task<ActionResult<BasketDto>> AddItemToBasket(int productId, int quantity, CancellationToken cancellationToken)
         {
             // Create a command to add an item to the basket
             var basketId = Request.Cookies["basketId"];
@@ -73,21 +75,26 @@ namespace CleanShop.Api.Controllers
             var result = await _sender.SendAsync(command, cancellationToken);
 
             // Return the updated basket
-            return Created();
+            return CreatedAtAction(nameof(GetBasket), result.ToDto());
         }
     
         [HttpDelete]
-        public async Task<ActionResult> RemoveItemFromBasket(string basketId, int productId, CancellationToken cancellationToken)
+        public async Task<ActionResult> RemoveItemFromBasket(int productId, int quantity,
+            CancellationToken cancellationToken)
         {
+            var basketId = Request.Cookies["basketId"];
+            if(string.IsNullOrEmpty(basketId))
+                return BadRequest();
+            
             // Create a command to remove an item from the basket
-            var command = new RemoveItemFromBasketCommand(basketId, productId);
+            var command = new RemoveItemFromBasketCommand(basketId,productId, quantity);
 
             // Send the command using the mediator
             var result = await _sender.SendAsync(command, cancellationToken);
 
             // Check if the result is null and return NotFound if it is
             if (result == null)
-                return NotFound();
+                return BadRequest();
 
             // Return the updated basket
             return NoContent();

@@ -4,6 +4,7 @@ namespace CleanShop.Application.Commands.Basket
 {
     public record RemoveItemFromBasketCommand(
         string BasketId,
-        int ProductId
+        int ProductId,
+        int Quantity
     ) : ICommand<Domain.Entities.Basket>;
 }

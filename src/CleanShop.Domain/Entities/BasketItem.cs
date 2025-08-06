@@ -11,8 +11,7 @@ public class BasketItem
     // Navigation properties
     public int ProductId { get; set; }
     public Product Product { get; set; }
-
-    // [JsonIgnore]
-    // public int BasketId { get; set; }
-    // public Basket Basket { get; set; }
+    
+    public int BasketId { get; set; }
+    public Basket Basket { get; set; }
 }

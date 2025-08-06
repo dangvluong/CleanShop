@@ -19,6 +19,7 @@ namespace CleanShop.Application.Commands.Basket
         {
             var basket = await _context.Baskets
                 .Include(b => b.Items)
+                .ThenInclude(b => b.Product)
                 .FirstOrDefaultAsync(b => b.BasketId == request.BasketId, cancellationToken);
 
             if (basket == null)
