@@ -1,17 +1,6 @@
 import { ShoppingCart } from '@mui/icons-material';
-import {
-  AppBar,
-  Badge,
-  Box,
-  IconButton,
-  LinearProgress,
-  List,
-  ListItem,
-  Switch,
-  Toolbar,
-  Typography,
-} from '@mui/material';
-import { NavLink } from 'react-router';
+import { AppBar, Badge, Box, IconButton, LinearProgress, List, ListItem, Switch, Toolbar, Typography } from '@mui/material';
+import { Link, NavLink } from 'react-router';
 import { useAppDispatch, useAppSelector } from '../store/store';
 import { setDarkMode } from './uiSlice';
 
@@ -65,7 +54,7 @@ export default function Header() {
           ))}
         </List>
         <Box display="flex" alignItems="center">
-          <IconButton size="large" edge="start" color="inherit" sx={{ mr: 2 }}>
+          <IconButton component={Link} to="/basket" size="large" edge="start" color="inherit" sx={{ mr: 2 }}>
             <Badge badgeContent="4" color="secondary">
               <ShoppingCart />
             </Badge>

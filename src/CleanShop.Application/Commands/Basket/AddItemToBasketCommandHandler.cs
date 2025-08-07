@@ -15,8 +15,25 @@ namespace CleanShop.Application.Commands.Basket
             _context = context;
         }
 
-        public async Task<Domain.Entities.Basket> Handle(AddItemToBasketCommand request, CancellationToken cancellationToken)
+        public async Task<Domain.Entities.Basket> Handle(AddItemToBasketCommand request,
+            CancellationToken cancellationToken)
         {
+            var product = await _context.Products
+                .FirstOrDefaultAsync(p => p.Id == request.ProductId, cancellationToken);
+
+            if (product is null)
+            {
+                // Handle the case where the product does not exist
+                // This could be throwing an exception, returning a result pattern, etc.
+                throw new ArgumentException($"Product with ID {request.ProductId} does not exist.");
+            }
+            
+            if(request.Quantity <= 0)
+            {
+                // Handle the case where the quantity is invalid
+                throw new ArgumentException("Quantity must be greater than zero.");
+            }
+            
             var basket = await _context.Baskets
                 .Include(b => b.Items)
                 .ThenInclude(b => b.Product)
@@ -32,17 +49,20 @@ namespace CleanShop.Application.Commands.Basket
                 _context.Baskets.Add(basket);
             }
 
-            var item = basket.Items.FirstOrDefault(i => i.ProductId == request.ProductId);
-            if (item != null)
+            
+
+            var existingProduct = basket.Items.FirstOrDefault(i => i.ProductId == product.Id);
+            if (existingProduct != null)
             {
-                item.Quantity += request.Quantity;
+                existingProduct.Quantity += request.Quantity;
             }
             else
             {
                 basket.Items.Add(new BasketItem
                 {
-                    ProductId = request.ProductId,
-                    Quantity = request.Quantity
+                    ProductId = product.Id,
+                    Quantity = request.Quantity,
+                    Product = product
                 });
             }
 

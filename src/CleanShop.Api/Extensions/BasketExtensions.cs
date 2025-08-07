@@ -12,7 +12,7 @@ namespace CleanShop.Api.Extensions
                 BasketId = basket.BasketId,
                 Items = basket.Items.Select(i => new BasketItemDto
                 {
-                    Id = i.ProductId,
+                    ProductId = i.ProductId,
                     Quantity = i.Quantity,
                     Name = i.Product.Name,
                     Price = i.Product.Price,

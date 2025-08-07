@@ -1,21 +1,14 @@
-import {
-  BaseQueryApi,
-  FetchArgs,
-  fetchBaseQuery,
-} from '@reduxjs/toolkit/query';
+import { BaseQueryApi, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { startLoading, stopLoading } from '../layout/uiSlice';
 
 const customBaseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:5000/api',
+  baseUrl: 'https://localhost:5001/api',
+  credentials: 'include',
 });
 
 const sleep = () => new Promise((resolve) => setTimeout(resolve, 1000));
 
-export const baseQueryWithErrorHandling = async (
-  args: string | FetchArgs,
-  api: BaseQueryApi,
-  extraOptions: object
-) => {
+export const baseQueryWithErrorHandling = async (args: string | FetchArgs, api: BaseQueryApi, extraOptions: object) => {
   api.dispatch(startLoading());
 
   await sleep();
