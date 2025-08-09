@@ -1,6 +1,7 @@
 import { Box, Typography, Divider, Button, TextField, Paper } from '@mui/material';
 import { currencyFormat } from '../../lib/util';
 import { Basket, Item } from '../../app/models/basket';
+import { Link } from 'react-router';
 
 interface Props {
   basket: Basket;
@@ -43,10 +44,12 @@ export default function OrderSummary({ basket }: Props) {
         </Box>
 
         <Box mt={2}>
-          <Button variant="contained" color="primary" fullWidth sx={{ mb: 1 }}>
+          <Button component={Link} to="/checkout" variant="contained" color="primary" fullWidth sx={{ mb: 1 }}>
             Checkout
           </Button>
-          <Button fullWidth>Continue Shopping</Button>
+          <Button component={Link} to="/catalog" fullWidth>
+            Continue Shopping
+          </Button>
         </Box>
       </Paper>
 
