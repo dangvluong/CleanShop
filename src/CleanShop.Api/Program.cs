@@ -1,3 +1,4 @@
+using CleanShop.Api.Exceptions;
 using CleanShop.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using CleanShop.Application;
@@ -12,6 +13,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddProblemDetails(configure =>
+{
+    configure.CustomizeProblemDetails = context =>
+    {
+        context.ProblemDetails.Extensions.TryAdd("requestId", context.HttpContext.TraceIdentifier);
+    };
+});
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 
 builder.Services.RegisterDatabaseServices(builder.Configuration);
 builder.Services.RegisterApplicationServices();
@@ -35,6 +44,7 @@ app.UseCors(option =>
           .WithOrigins("http://localhost:3000");
 });
 app.UseAuthorization();
+app.UseExceptionHandler();
 
 app.MapControllers();
 
