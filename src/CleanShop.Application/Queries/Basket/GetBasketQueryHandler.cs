@@ -19,6 +19,7 @@ namespace CleanShop.Application.Queries.Basket
             return await _context.Baskets
                 .Include(b => b.Items)
                 .ThenInclude(a => a.Product)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(b => b.BasketId == request.BasketId, cancellationToken);
         }
     }

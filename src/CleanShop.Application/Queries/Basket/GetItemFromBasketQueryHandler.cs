@@ -19,6 +19,7 @@ namespace CleanShop.Application.Queries.Basket
         {
             var basket = await _context.Baskets
                 .Include(b => b.Items)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(b => b.BasketId == request.BasketId, cancellationToken);
 
             return basket?.Items.FirstOrDefault(i => i.ProductId == request.ProductId);
