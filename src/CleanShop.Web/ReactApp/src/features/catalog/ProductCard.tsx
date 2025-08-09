@@ -40,7 +40,7 @@ export default function ProductCard({ product }: Props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button disabled={isLoading} onClick={() => addBasketItem({ productId: product.id, quantity: 1 })} size="small">
+        <Button disabled={isLoading} onClick={() => addBasketItem({ product, quantity: 1 })} size="small">
           Add to cart
         </Button>
         <Button component={Link} to={`/catalog/${product.id}`} size="small">
