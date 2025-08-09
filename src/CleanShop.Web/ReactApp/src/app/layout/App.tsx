@@ -1,10 +1,5 @@
 import Header from './Header';
-import {
-  Container,
-  CssBaseline,
-  ThemeProvider,
-  createTheme,
-} from '@mui/material';
+import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { Outlet } from 'react-router';
 import { useAppSelector } from '../store/store';
 
