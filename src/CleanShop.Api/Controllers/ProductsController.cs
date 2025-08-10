@@ -1,4 +1,5 @@
-﻿using CleanShop.Application.Commands.Products.Create;
+﻿using CleanShop.Api.DTOs;
+using CleanShop.Application.Commands.Products.Create;
 using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Application.Queries.Products;
 using CleanShop.Domain.Entities;
@@ -19,9 +20,15 @@ namespace CleanShop.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetProducts([FromQuery]GetProductRequest request, CancellationToken cancellationToken = default)
         {
-            var query = new GetProductsQuery();
+            var query = new GetProductsQuery
+            {
+                OrderBy = request.OrderBy,
+                SearchValue = request.SearchValue,
+                Types = request.Types,
+                Brands = request.Brands
+            };
 
             var result = await _sender.SendAsync(query, cancellationToken);
 

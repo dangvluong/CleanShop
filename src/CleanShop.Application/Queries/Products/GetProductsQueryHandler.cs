@@ -15,9 +15,42 @@ namespace CleanShop.Application.Queries.Products
             _context = context;
         }
 
-        public async Task<IEnumerable<Product>> Handle(GetProductsQuery request, CancellationToken cancellationToken = default)
+        public async Task<IEnumerable<Product>> Handle(GetProductsQuery request,
+            CancellationToken cancellationToken = default)
         {
-            return await _context.Products.ToListAsync(cancellationToken);
+            var query = _context.Products.AsQueryable();
+            query = request.OrderBy switch
+            {
+                "price" => query.OrderBy(p => p.Price),
+                "priceDesc" => query.OrderByDescending(p => p.Price),
+                _ => query.OrderBy(p => p.Name)
+            };
+
+            if (!string.IsNullOrEmpty(request.SearchValue))
+            {
+                var lowerCaseSearchValue = request.SearchValue.ToLower();
+                query = query.Where(p => p.Name.ToLower().Contains(lowerCaseSearchValue));
+            }
+
+            var brandList = new List<string>();
+            var typeList = new List<string>();
+            
+            if (!string.IsNullOrEmpty(request.Types))
+            {
+                typeList.AddRange([..request.Types.ToLower().Split(",")]);
+            }
+            
+            if (!string.IsNullOrEmpty(request.Brands))
+            {
+                brandList.AddRange([..request.Brands.ToLower().Split(",")]);
+            }
+            
+            query = query.Where(a => brandList.Count == 0 || brandList.Contains(a.Brand.ToLower()))
+                .Where(a => typeList.Count == 0 || typeList.Contains(a.Type.ToLower()));
+
+            return await query
+                .AsNoTracking()
+                .ToListAsync(cancellationToken);
         }
     }
 }
