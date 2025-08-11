@@ -1,5 +1,6 @@
 ﻿using CleanShop.Application.Commands.Basket;
 using CleanShop.Application.Commands.Products.Create;
+using CleanShop.Application.Commons.Models;
 using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Application.Queries.Basket;
 using CleanShop.Application.Queries.Products;
@@ -13,8 +14,9 @@ public static class DependencyInjection
 {
     public static IServiceCollection RegisterApplicationServices(this IServiceCollection services)
     {
-        services.AddScoped<IQueryHandler<GetProductsQuery, IEnumerable<Product>>, GetProductsQueryHandler>();
+        services.AddScoped<IQueryHandler<GetProductsQuery, PagedList<Product>>, GetProductsQueryHandler>();
         services.AddScoped<IQueryHandler<GetProductByIdQuery, Product>, GetProductByIdQueryHandler>();
+        services.AddScoped<IQueryHandler<GetProductFilterOptionsQuery, ProductFilterOptions>, GetProductFilterOptionsQueryHandler>();
         services.AddScoped<ICommandHandler<CreateProductCommand, Product>, CreateProductCommandHandler>();
         
         services.AddScoped<IQueryHandler<GetBasketQuery, Basket>, GetBasketQueryHandler>();

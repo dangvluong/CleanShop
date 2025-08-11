@@ -1,5 +1,7 @@
 ﻿using CleanShop.Api.DTOs;
+using CleanShop.Api.Extensions;
 using CleanShop.Application.Commands.Products.Create;
+using CleanShop.Application.Commons.Models;
 using CleanShop.Application.Interfaces.Messaging;
 using CleanShop.Application.Queries.Products;
 using CleanShop.Domain.Entities;
@@ -20,19 +22,18 @@ namespace CleanShop.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProducts([FromQuery]GetProductRequest request, CancellationToken cancellationToken = default)
+        public async Task<ActionResult<List<Product>>> GetProducts([FromQuery]SearchProductParams searchProductParams, [FromQuery] PaginationParams paginationParams,CancellationToken cancellationToken = default)
         {
             var query = new GetProductsQuery
             {
-                OrderBy = request.OrderBy,
-                SearchValue = request.SearchValue,
-                Types = request.Types,
-                Brands = request.Brands
+                SearchParams = searchProductParams,
+                PaginationParams = paginationParams
             };
 
-            var result = await _sender.SendAsync(query, cancellationToken);
+            var products = await _sender.SendAsync(query, cancellationToken);
+            Response.AddPaginationHeader(products.Metadata);
 
-            return Ok(result);
+            return Ok(products);
         }
 
         [HttpGet("{productId}")]
@@ -59,6 +60,16 @@ namespace CleanShop.Api.Controllers
             var result = await _sender.SendAsync(command, cancellationToken);
 
             return Ok(result);
+        }
+
+        [HttpGet("filters")]
+        public async Task<IActionResult> GetFilters(CancellationToken cancellationToken = default)
+        {
+            var command = new GetProductFilterOptionsQuery();
+            
+            var filters = await _sender.SendAsync(command, cancellationToken);
+            
+            return  Ok(filters);
         }
     }
 }

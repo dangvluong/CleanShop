@@ -1,6 +1,6 @@
-﻿namespace CleanShop.Api.DTOs
+﻿namespace CleanShop.Application.Commons.Models
 {
-    public class GetProductRequest
+    public class SearchProductParams
     {
         public string? OrderBy { get; set; }
         public string? SearchValue { get; set; }
