@@ -27,10 +27,10 @@ namespace CleanShop.Application.Queries.Products
                 _ => query.OrderBy(p => p.Name)
             };
 
-            if (!string.IsNullOrEmpty(request.SearchParams.SearchValue))
+            if (!string.IsNullOrEmpty(request.SearchParams.SearchTerm))
             {
-                var lowerCaseSearchValue = request.SearchParams.SearchValue.ToLower();
-                query = query.Where(p => p.Name.ToLower().Contains(lowerCaseSearchValue));
+                var lowerCaseSearchTerm = request.SearchParams.SearchTerm.ToLower();
+                query = query.Where(p => p.Name.ToLower().Contains(lowerCaseSearchTerm));
             }
 
             var brandList = new List<string>();
