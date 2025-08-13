@@ -1,6 +1,6 @@
 import Header from './Header';
 import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import { Outlet } from 'react-router';
+import { Outlet, ScrollRestoration } from 'react-router';
 import { useAppSelector } from '../store/store';
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <ScrollRestoration />
       <CssBaseline />
       <Header />
       <Container>
