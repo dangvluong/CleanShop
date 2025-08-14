@@ -1,11 +1,10 @@
-﻿using CleanShop.Application.Interfaces;
-using CleanShop.Application.Interfaces.Services;
-using CleanShop.Infra.Data.Context;
+﻿using CleanShop.Application.Interfaces.Services;
+using CleanShop.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CleanShop.Infra.Data
+namespace CleanShop.Infrastructure
 {
     public static class DependencyInjection
     {

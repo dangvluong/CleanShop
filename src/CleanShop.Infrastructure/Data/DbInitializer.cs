@@ -1,8 +1,7 @@
-﻿using CleanShop.Application.Interfaces;
-using CleanShop.Application.Interfaces.Services;
+﻿using CleanShop.Application.Interfaces.Services;
 using CleanShop.Domain.Entities;
 
-namespace CleanShop.Infra.Data
+namespace CleanShop.Infrastructure.Data
 {
     public static class DbInitializer
     {

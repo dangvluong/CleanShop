@@ -1,9 +1,9 @@
 using CleanShop.Api.Exceptions;
-using CleanShop.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using CleanShop.Application;
-using CleanShop.Application.Interfaces;
 using CleanShop.Application.Interfaces.Services;
+using CleanShop.Infrastructure;
+using CleanShop.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
