@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CleanShop.Infrastructure.Identity
 {
-    public class AppIdentityDbContext(DbContextOptions options) : IdentityDbContext<User>(options)
+    public class AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options) : IdentityDbContext<User>(options)
     {
         protected override void OnModelCreating(ModelBuilder builder)
         {

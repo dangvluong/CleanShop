@@ -14,6 +14,8 @@ namespace CleanShop.Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(configuration.GetConnectionString("StoreDbContext")));
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlite(configuration.GetConnectionString("StoreDbContext")));
 
             services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
 
