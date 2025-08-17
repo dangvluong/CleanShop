@@ -11,7 +11,7 @@ export default function Catalog() {
   const { data, isLoading } = useFetchProductsQuery(productParams);
   const { data: filtersData, isLoading: filtersLoading } = useFetchFiltersQuery();
   const dispatch = useAppDispatch();
-  if (isLoading || !data || !filtersLoading || !filtersData) return <div>Loading...</div>;
+  if (isLoading || !data || filtersLoading || !filtersData) return <div>Loading...</div>;
   return (
     <Grid2 container spacing={4}>
       <Grid2 size={3}>
