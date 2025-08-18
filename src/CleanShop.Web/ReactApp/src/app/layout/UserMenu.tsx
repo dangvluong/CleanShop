@@ -26,7 +26,9 @@ export default function UserMenu({ user }: Props) {
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
+        color="inherit"
         onClick={handleClick}
+        sx={{ fontSize: '1.1rem' }}
       >
         {user.email}
       </Button>

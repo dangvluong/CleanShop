@@ -3,6 +3,7 @@ import { baseQueryWithErrorHandling } from '../../app/api/baseApi';
 import { User } from '../../app/models/user';
 import { LoginSchema } from '../../lib/schemas/loginSchema';
 import { router } from '../../app/router/Routes';
+import { toast } from 'react-toastify';
 
 export const accountApi = createApi({
   reducerPath: 'accountApi',
@@ -34,6 +35,16 @@ export const accountApi = createApi({
           body: credential,
         };
       },
+      async onQueryStarted(_, { queryFulfilled }) {
+        try {
+          await queryFulfilled;
+          toast.success('Registration successful. You can now sign in!');
+          router.navigate('/login');
+        } catch (error) {
+          console.log(error);
+          throw error;
+        }
+      },
     }),
     userInfo: builder.query<User, void>({
       query: () => 'account/user-info',
@@ -53,4 +64,4 @@ export const accountApi = createApi({
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation, useLogoutMutation, useUserInfoQuery } = accountApi;
+export const { useLoginMutation, useRegisterMutation, useLogoutMutation, useUserInfoQuery, useLazyUserInfoQuery } = accountApi;
