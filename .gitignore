@@ -288,5 +288,7 @@ sketch
 src/store.db-shm
 src/store.db-wal
 src/store.db
+**/appsettings.Development.json
+
 
 # End of https://www.toptal.com/developers/gitignore/api/aspnetcore,react
