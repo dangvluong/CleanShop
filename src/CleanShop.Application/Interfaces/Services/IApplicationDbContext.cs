@@ -12,6 +12,8 @@ namespace CleanShop.Application.Interfaces.Services
         
         DbSet<Domain.Entities.Basket> Baskets { get; }
         
+        DbSet<Domain.Entities.Payment> Payments { get; }
+        
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

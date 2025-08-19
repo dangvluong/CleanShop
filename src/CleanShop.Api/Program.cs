@@ -24,7 +24,7 @@ builder.Services.AddProblemDetails(configure =>
     };
 });
 builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
-builder.Services.RegisterDatabaseServices(builder.Configuration);
+builder.Services.RegisterInfrastructureServices(builder.Configuration);
 builder.Services.RegisterApplicationServices();
 builder.Services.AddIdentityApiEndpoints<User>();
 

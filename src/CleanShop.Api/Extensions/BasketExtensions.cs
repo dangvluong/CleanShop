@@ -1,5 +1,6 @@
 ﻿using CleanShop.Api.DTOs;
 using CleanShop.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CleanShop.Api.Extensions
 {

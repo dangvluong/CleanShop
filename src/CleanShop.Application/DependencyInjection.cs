@@ -1,4 +1,5 @@
 ﻿using CleanShop.Application.Commands.Basket;
+using CleanShop.Application.Commands.Payment;
 using CleanShop.Application.Commands.Products.Create;
 using CleanShop.Application.Commons.Models;
 using CleanShop.Application.Interfaces.Messaging;
@@ -24,6 +25,8 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<AddItemToBasketCommand, Basket>, AddItemToBasketCommandHandler>();
         services.AddScoped<ICommandHandler<RemoveItemFromBasketCommand, Basket>, RemoveItemFromBasketCommandHandler>();
         services.AddScoped<ICommandHandler<CreateBasketCommand, Basket>, CreateBasketCommandHandler>();
+        
+        services.AddScoped<ICommandHandler<CreateOrUpdatePaymentIntentCommand, PaymentResult>,CreateOrUpdatePaymentIntentCommandHandler>();
 
         services.AddScoped<IMediator, Mediator>();
 

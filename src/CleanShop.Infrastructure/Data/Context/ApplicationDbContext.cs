@@ -1,6 +1,7 @@
 ﻿using CleanShop.Application.Interfaces.Services;
 using CleanShop.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using PaymentEntity = CleanShop.Domain.Entities.Payment;
 
 namespace CleanShop.Infrastructure.Data.Context
 {
@@ -13,6 +14,7 @@ namespace CleanShop.Infrastructure.Data.Context
 
         public DbSet<Product> Products { get; set; }
         public DbSet<Basket> Baskets { get; set; }
+        public DbSet<PaymentEntity> Payments { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
