@@ -6,7 +6,7 @@ namespace CleanShop.Application.Commands.Products.Create
     public record CreateProductCommand(
         string Name,
         string Description,
-        decimal Price,
+        long Price,
         string ImageUrl,
         string Type,
         string Brand) : ICommand<Product>

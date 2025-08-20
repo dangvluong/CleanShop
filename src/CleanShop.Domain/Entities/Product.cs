@@ -1,6 +1,8 @@
+using CleanShop.Domain.Common;
+
 namespace CleanShop.Domain.Entities
 {
-    public class Product
+    public class Product : AuditableEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

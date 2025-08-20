@@ -20,6 +20,11 @@ namespace CleanShop.Application.Commands.Products.Create
             var product = new Product
             {
                 Name = request.Name,
+                Description = request.Description,
+                Price = request.Price,
+                Brand = request.Brand,
+                Type = request.Type,
+                ImageUrl = request.ImageUrl
             };
 
             _context.Products.Add(product);

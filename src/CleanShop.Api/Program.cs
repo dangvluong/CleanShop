@@ -1,4 +1,5 @@
 using CleanShop.Api.Exceptions;
+using CleanShop.Api.Services;
 using Microsoft.EntityFrameworkCore;
 using CleanShop.Application;
 using CleanShop.Application.Interfaces.Services;
@@ -27,6 +28,8 @@ builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.RegisterInfrastructureServices(builder.Configuration);
 builder.Services.RegisterApplicationServices();
 builder.Services.AddIdentityApiEndpoints<User>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
 var app = builder.Build();
 
