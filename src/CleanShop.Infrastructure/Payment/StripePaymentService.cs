@@ -41,8 +41,11 @@ namespace CleanShop.Infrastructure.Payment
                     PaymentIntentId = intent.Id,
                     Amount = subTotal + deliveryFee,
                     Currency = intent.Currency,
-                    Status = intent.Status
+                    Status = intent.Status,
+                    ClientSecret = intent.ClientSecret
                 };
+                
+                await context.Payments.AddAsync(payment);
             }
             else
             {
@@ -59,7 +62,7 @@ namespace CleanShop.Infrastructure.Payment
             }
 
             // Update the payment in db
-            await context.Payments.AddAsync(payment);
+            await context.SaveChangesAsync();
 
             return new PaymentResult
             {
